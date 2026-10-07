@@ -1,4 +1,4 @@
-# 📋 TodoList Symfony
+#  TodoList Symfony
 
 > Application web de gestion de tâches développée avec PHP et Symfony.
 
@@ -12,7 +12,7 @@
 
 ---
 
-## 📖 Présentation
+##  Présentation
 
 TodoList Symfony est une application web permettant de créer, consulter, modifier, organiser et suivre l'évolution de tâches.
 
@@ -38,9 +38,9 @@ L'application permet notamment de gérer le cycle de vie d'une tâche :
 
 ---
 
-# ✨ Fonctionnalités
+#  Fonctionnalités
 
-## 📋 Gestion des tâches
+##  Gestion des tâches
 
 L'application permet de :
 
@@ -58,7 +58,7 @@ L'application permet de :
 
 ---
 
-## ➕ Création d'une tâche
+##  Création d'une tâche
 
 La page de création permet de renseigner :
 
@@ -72,7 +72,7 @@ Le formulaire est géré avec le composant Form de Symfony.
 
 ---
 
-## 👁️ Consultation d'une tâche
+##  Consultation d'une tâche
 
 Chaque tâche possède une page de détail.
 
@@ -90,7 +90,7 @@ Le titre d'une tâche depuis la page principale est cliquable afin d'accéder di
 
 ---
 
-## ✏️ Modification d'une tâche
+##  Modification d'une tâche
 
 Une tâche existante peut être modifiée.
 
@@ -108,7 +108,7 @@ Lorsqu'une tâche existante est modifiée, Doctrine effectue simplement un `flus
 
 ---
 
-## 📊 Gestion du statut
+##  Gestion du statut
 
 Les tâches possèdent trois statuts :
 
@@ -136,7 +136,7 @@ Une tâche terminée est également affichée différemment afin de la distingue
 
 ---
 
-## 👤 Gestion des tâches assignées
+##  Gestion des tâches assignées
 
 Chaque tâche peut être associée à une personne via le champ :
 
@@ -160,7 +160,7 @@ Exemple :
 
 ---
 
-## 🔎 Recherche dynamique
+##  Recherche dynamique
 
 La page principale contient une barre de recherche.
 
@@ -173,7 +173,7 @@ La recherche utilise JavaScript et ne nécessite pas de rechargement de la page.
 
 ---
 
-## 📈 Statistiques
+##  Statistiques
 
 La page principale affiche automatiquement plusieurs informations :
 
@@ -198,7 +198,7 @@ Les statistiques sont calculées à partir des tâches récupérées depuis la b
 
 ---
 
-# 🎨 Interface utilisateur
+#  Interface utilisateur
 
 L'application possède une interface personnalisée en CSS.
 
@@ -220,7 +220,7 @@ L'interface utilise :
 
 ---
 
-## 🌙 Mode sombre
+##  Mode sombre
 
 Un bouton permet d'activer ou de désactiver le mode sombre.
 
@@ -234,7 +234,7 @@ Ainsi, après un rechargement de la page, le thème choisi est conservé.
 
 ---
 
-# ⚡ JavaScript
+#  JavaScript
 
 Le fichier JavaScript principal est :
 
@@ -253,7 +253,7 @@ Il gère notamment :
 
 ---
 
-# 🎨 CSS
+#  CSS
 
 Le fichier CSS principal est :
 
@@ -293,7 +293,7 @@ Les principales classes utilisées sont notamment :
 
 ---
 
-# 🏗️ Architecture du projet
+#  Architecture du projet
 
 Le projet suit l'architecture MVC utilisée par Symfony.
 
@@ -347,7 +347,7 @@ my_project_directory/
 
 ---
 
-# 🧱 Entité ToDo
+#  Entité ToDo
 
 L'entité principale de l'application est :
 
@@ -389,7 +389,7 @@ Le champ `status` utilise les valeurs :
 
 ---
 
-# 📝 Formulaire Symfony
+#  Formulaire Symfony
 
 Le formulaire principal se trouve dans :
 
@@ -431,7 +431,7 @@ grâce à :
 
 ---
 
-# 🧭 Routes de l'application
+# Routes de l'application
 
 Les principales routes sont :
 
@@ -446,7 +446,7 @@ Les principales routes sont :
 
 ---
 
-# 🎮 Fonctionnement des contrôleurs
+#  Fonctionnement des contrôleurs
 
 Le contrôleur principal est :
 
@@ -464,7 +464,7 @@ pour communiquer avec Doctrine et la base de données.
 
 ---
 
-## 📋 Liste des tâches
+##  Liste des tâches
 
 La liste récupère toutes les tâches :
 
@@ -482,7 +482,7 @@ templates/to_do/list.html.twig
 
 ---
 
-## ➕ Création
+##  Création
 
 Une nouvelle entité est créée :
 
@@ -505,7 +505,7 @@ $entityManager->flush();
 
 ---
 
-## 👁️ Détail
+##  Détail
 
 L'application recherche une tâche grâce à son ID :
 
@@ -519,7 +519,7 @@ Si la tâche n'existe pas, une erreur 404 est retournée.
 
 ---
 
-## ✏️ Modification
+## Modification
 
 Une tâche existante est récupérée puis associée au formulaire :
 
@@ -537,7 +537,7 @@ Il n'est pas nécessaire d'utiliser `persist()` pour une entité existante déj�
 
 ---
 
-## 🔄 Changement de statut
+## Changement de statut
 
 La route de changement de statut utilise une requête `POST`.
 
@@ -557,7 +557,7 @@ Cela permet de faire évoluer automatiquement :
 
 ---
 
-# 🗄️ Base de données
+# Base de données
 
 Le projet utilise SQLite.
 
@@ -571,7 +571,7 @@ Doctrine permet de gérer la communication entre l'application Symfony et la bas
 
 ---
 
-# 🔄 Migrations
+#  Migrations
 
 Les modifications de structure de la base de données sont gérées grâce aux migrations Doctrine.
 
@@ -595,7 +595,7 @@ php bin/console doctrine:schema:validate
 
 ---
 
-# 🛠️ Technologies utilisées
+#  Technologies utilisées
 
 ## Backend
 
@@ -623,7 +623,7 @@ php bin/console doctrine:schema:validate
 
 ---
 
-# 💻 Installation
+#  Installation
 
 ## Prérequis
 
@@ -748,7 +748,7 @@ symfony server:start
 
 ---
 
-# 📱 Responsive Design
+#  Responsive Design
 
 L'application est conçue pour s'adapter aux différentes tailles d'écran.
 
@@ -772,7 +772,7 @@ Sur mobile, les éléments s'organisent verticalement afin de rester facilement 
 
 ---
 
-# 🔐 Sécurité et améliorations possibles
+#  Sécurité et améliorations possibles
 
 La version actuelle est principalement orientée apprentissage.
 
@@ -788,7 +788,7 @@ Plusieurs améliorations de sécurité pourraient être ajoutées :
 
 ---
 
-# 🚀 Améliorations futures
+#  Améliorations futures
 
 Le projet peut continuer à évoluer avec de nombreuses fonctionnalités.
 
@@ -805,7 +805,7 @@ Une confirmation pourrait être affichée avant la suppression.
 
 ---
 
-## ⚡ AJAX
+##  AJAX
 
 Le changement de statut pourrait être effectué sans rechargement de page.
 
@@ -821,7 +821,7 @@ La carte pourrait changer directement de couleur avec une animation.
 
 ---
 
-## 🔔 Notifications
+##  Notifications
 
 Afficher une notification après une action :
 
@@ -837,13 +837,13 @@ ou :
 
 ---
 
-## 📅 Calendrier
+## Calendrier
 
 Ajouter une vue calendrier afin d'afficher les tâches selon leur date.
 
 ---
 
-## 🔍 Filtres avancés
+##  Filtres avancés
 
 Ajouter des filtres par :
 
@@ -869,7 +869,7 @@ ToDo
 
 ---
 
-## ⭐ Priorités
+##  Priorités
 
 Ajouter différents niveaux de priorité :
 
@@ -888,7 +888,7 @@ Permettre d'associer des fichiers à une tâche.
 
 ---
 
-# 🎯 Objectifs pédagogiques
+#  Objectifs pédagogiques
 
 Ce projet permet de travailler les notions suivantes :
 
@@ -932,7 +932,7 @@ Ce projet permet de travailler les notions suivantes :
 
 ---
 
-# 🧠 Ce que ce projet permet de démontrer
+#  Ce que ce projet permet de démontrer
 
 Ce projet constitue une première application CRUD complète.
 
@@ -1042,7 +1042,7 @@ Le parcours principal est :
 
 ---
 
-# 📌 Exemple d'utilisation
+#  Exemple d'utilisation
 
 ### 1. Créer une tâche
 
@@ -1114,7 +1114,7 @@ l'utilisateur accède à toutes les tâches de cette personne.
 
 ---
 
-# 🏁 Conclusion
+#  Conclusion
 
 TodoList Symfony est une application réalisée pour mettre en pratique les bases du développement web avec Symfony.
 
@@ -1151,7 +1151,7 @@ L'application constitue une base évolutive pouvant progressivement intégrer :
 
 ---
 
-# 👨‍💻 Auteur
+#  Auteur
 
 Projet réalisé dans le cadre de l'apprentissage du développement web avec **PHP et Symfony**.
 
