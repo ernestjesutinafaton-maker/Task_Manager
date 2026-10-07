@@ -977,7 +977,7 @@ La suppression pourra donc être ajoutée dans une prochaine version afin de com
 Une capture d'écran de l'application peut être ajoutée ici :
 
 ```markdown
-![docs/Accueil.png]
+![Page d'accueil](docs/Accueil.png)
 ```
 
 Il est conseillé de créer le dossier :
@@ -1110,7 +1110,7 @@ En cliquant sur le nom de la personne assignée :
 👤 Ernest
 ```
 ```markdown
-![docs/Ernest_Task.png]
+![Tâches assignées](docs/Ernest_Task.png)
 ```
 l'utilisateur accède à toutes les tâches de cette personne.
 
