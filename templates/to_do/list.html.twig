@@ -1,0 +1,237 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TodoList{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+    <div class="app-header">
+
+        <div>
+            <h1> Mes tâches</h1>
+
+            <p>
+                Organisez vos tâches simplement.
+            </p>
+        </div>
+
+        <div>
+
+            <button
+                id="dark-mode-button"
+                class="btn btn-secondary"
+                type="button"
+            >
+                🌙 Mode sombre
+            </button>
+
+            <a
+                href="{{ path('app_to_do_new') }}"
+                class="btn btn-primary"
+            >
+                + Nouvelle tâche
+            </a>
+
+        </div>
+
+    </div>
+
+
+    {# RECHERCHE #}
+
+    <div class="search-container">
+
+        <input
+            id="todo-search"
+            type="search"
+            placeholder=" Rechercher une tâche..."
+        >
+
+    </div>
+
+
+    {# STATISTIQUES #}
+
+    {% set total = toDos|length %}
+    {% set todoCount = 0 %}
+    {% set progressCount = 0 %}
+    {% set doneCount = 0 %}
+
+    {% for todo in toDos %}
+
+        {% if todo.status == 0 %}
+            {% set todoCount = todoCount + 1 %}
+        {% elseif todo.status == 1 %}
+            {% set progressCount = progressCount + 1 %}
+        {% elseif todo.status == 2 %}
+            {% set doneCount = doneCount + 1 %}
+        {% endif %}
+
+    {% endfor %}
+
+
+    <div class="stats">
+
+        <div class="stat-card">
+            <span>Total</span>
+            <strong>{{ total }}</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>En cours</span>
+            <strong>{{ progressCount }}</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Terminées</span>
+            <strong>{{ doneCount }}</strong>
+        </div>
+
+    </div>
+
+
+    {# LISTE #}
+
+    <ul class="todo-list">
+
+        {% for todo in toDos %}
+
+            <li
+                class="
+                    todo-card
+
+                    {% if todo.status == 0 %}
+                        todo-todo
+                    {% elseif todo.status == 1 %}
+                        todo-progress
+                    {% elseif todo.status == 2 %}
+                        todo-done
+                    {% endif %}
+                "
+
+                data-title="{{ todo.title }}"
+                data-content="{{ todo.content }}"
+            >
+
+                <div class="todo-info">
+
+                    <a
+                        class="todo-title"
+                        href="{{ path('app_to_do_show', { id: todo.id }) }}"
+                    >
+                        {{ todo.title }}
+                    </a>
+
+                    <div class="todo-description">
+
+                        {{ todo.content|slice(0, 100) }}
+
+                        {% if todo.content|length > 100 %}
+                            ...
+                        {% endif %}
+
+                    </div>
+
+
+                    <div class="todo-meta">
+
+                        {% if todo.status == 0 %}
+
+                            <span class="badge badge-todo">
+                                🔴 À faire
+                            </span>
+
+                        {% elseif todo.status == 1 %}
+
+                            <span class="badge badge-progress">
+                                🟠 En cours
+                            </span>
+
+                        {% elseif todo.status == 2 %}
+
+                            <span class="badge badge-done">
+                                🟢 Terminé
+                            </span>
+
+                        {% endif %}
+
+
+                        <span class="badge">
+                             {{ todo.AssignedTo }}
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="todo-actions">
+
+                    {% if todo.status == 0 %}
+
+                        <form
+                            class="status-form"
+                            method="post"
+                            action="{{ path('app_to_do_status', { id: todo.id }) }}"
+                        >
+
+                            <button
+                                class="btn-status"
+                                type="submit"
+                            >
+                                ▶ Passer en cours
+                            </button>
+
+                        </form>
+
+                    {% elseif todo.status == 1 %}
+
+                        <form
+                            class="status-form"
+                            method="post"
+                            action="{{ path('app_to_do_status', { id: todo.id }) }}"
+                        >
+
+                            <button
+                                class="btn-status"
+                                type="submit"
+                            >
+                                ✓ Terminer
+                            </button>
+
+                        </form>
+
+                    {% elseif todo.status == 2 %}
+
+                        <span class="badge badge-done">
+                            ✓ Terminé
+                        </span>
+
+                    {% endif %}
+
+
+                    <a
+                        href="{{ path('app_to_do_edit', { id: todo.id }) }}"
+                        class="btn btn-edit"
+                    >
+                         Modifier
+                    </a>
+
+                </div>
+
+            </li>
+
+        {% else %}
+
+            <li>
+                Aucune tâche pour le moment.
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+</div>
+
+{% endblock %}

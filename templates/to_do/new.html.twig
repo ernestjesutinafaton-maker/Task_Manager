@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle tâche{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+    <div class="app-header">
+
+        <div>
+            <h1>➕ Nouvelle tâche</h1>
+
+            <p>
+                Créez une nouvelle tâche à ajouter à votre liste.
+            </p>
+        </div>
+
+        <a
+            href="{{ path('app_to_do_list') }}"
+            class="btn btn-secondary"
+        >
+            ← Retour aux tâches
+        </a>
+
+    </div>
+
+
+    <div class="todo-detail">
+
+        {{ form_start(form) }}
+
+            {{ form_row(form.title) }}
+
+            {{ form_row(form.content) }}
+
+            {{ form_row(form.status) }}
+
+            {{ form_row(form.AssignedTo) }}
+
+            {{ form_row(form.date) }}
+
+            <div style="margin-top: 20px;">
+                {{ form_row(form.save) }}
+            </div>
+
+        {{ form_end(form) }}
+
+    </div>
+
+</div>
+
+{% endblock %}

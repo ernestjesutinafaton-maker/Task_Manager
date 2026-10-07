@@ -1,0 +1,154 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tâches de {{ AssignedTo }}{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+    <div class="app-header">
+
+        <div>
+            <h1>👤 Tâches de {{ AssignedTo }}</h1>
+
+            <p>
+                Voici toutes les tâches qui lui sont attribuées.
+            </p>
+        </div>
+
+        <a
+            href="{{ path('app_to_do_list') }}"
+            class="btn btn-secondary"
+        >
+            ← Toutes les tâches
+        </a>
+
+    </div>
+
+
+    {% if toDos is not empty %}
+
+        <ul class="todo-list">
+
+            {% for todo in toDos %}
+
+                <li
+                    class="
+                        todo-card
+
+                        {% if todo.status == 0 %}
+                            todo-todo
+                        {% elseif todo.status == 1 %}
+                            todo-progress
+                        {% elseif todo.status == 2 %}
+                            todo-done
+                        {% endif %}
+                    "
+                >
+
+                    <div class="todo-info">
+
+                        <a
+                            href="{{ path('app_to_do_show', {
+                                id: todo.id
+                            }) }}"
+                            class="todo-title"
+                        >
+                            {{ todo.title }}
+                        </a>
+
+
+                        <div class="todo-description">
+
+                            {{ todo.content|slice(0, 100) }}
+
+                            {% if todo.content|length > 100 %}
+                                ...
+                            {% endif %}
+
+                        </div>
+
+
+                        <div class="todo-meta">
+
+                            {% if todo.status == 0 %}
+
+                                <span class="badge badge-todo">
+                                    🔴 À faire
+                                </span>
+
+                            {% elseif todo.status == 1 %}
+
+                                <span class="badge badge-progress">
+                                    🟠 En cours
+                                </span>
+
+                            {% elseif todo.status == 2 %}
+
+                                <span class="badge badge-done">
+                                    🟢 Terminé
+                                </span>
+
+                            {% endif %}
+
+                            <span class="badge">
+                                👤 {{ todo.AssignedTo }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="todo-actions">
+
+                        <a
+                            href="{{ path('app_to_do_show', {
+                                id: todo.id
+                            }) }}"
+                            class="btn btn-secondary"
+                        >
+                            Voir
+                        </a>
+
+                        <a
+                            href="{{ path('app_to_do_edit', {
+                                id: todo.id
+                            }) }}"
+                            class="btn btn-edit"
+                        >
+                            ✏️ Modifier
+                        </a>
+
+                    </div>
+
+                </li>
+
+            {% endfor %}
+
+        </ul>
+
+    {% else %}
+
+        <div class="todo-detail">
+
+            <h2>Aucune tâche</h2>
+
+            <p>
+                {{ AssignedTo }} n'a actuellement aucune tâche.
+            </p>
+
+            <a
+                href="{{ path('app_to_do_list') }}"
+                class="btn btn-primary"
+            >
+                ← Retour aux tâches
+            </a>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

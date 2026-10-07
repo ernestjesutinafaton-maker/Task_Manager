@@ -1,0 +1,130 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ toDo.title }}{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+    <div class="app-header">
+
+        <div>
+            <h1>📋 Détail de la tâche</h1>
+
+            <p>
+                Consultez les informations de cette tâche.
+            </p>
+        </div>
+
+        <a
+            href="{{ path('app_to_do_list') }}"
+            class="btn btn-secondary"
+        >
+            ← Retour aux tâches
+        </a>
+
+    </div>
+
+
+    <div class="todo-detail">
+
+        <h1>
+            {{ toDo.title }}
+        </h1>
+
+
+        <div class="detail-section">
+
+            <span class="detail-label">
+                Description
+            </span>
+
+            <p>
+                {{ toDo.content }}
+            </p>
+
+        </div>
+
+
+        <div class="detail-section">
+
+            <span class="detail-label">
+                Statut
+            </span>
+
+            {% if toDo.status == 0 %}
+
+                <span class="badge badge-todo">
+                    🔴 À faire
+                </span>
+
+            {% elseif toDo.status == 1 %}
+
+                <span class="badge badge-progress">
+                    🟠 En cours
+                </span>
+
+            {% elseif toDo.status == 2 %}
+
+                <span class="badge badge-done">
+                    🟢 Terminé
+                </span>
+
+            {% endif %}
+
+        </div>
+
+
+        <div class="detail-section">
+
+            <span class="detail-label">
+                Personne assignée
+            </span>
+
+            <a
+                href="{{ path('app_to_do_assigned', {
+                    AssignedTo: toDo.AssignedTo
+                }) }}"
+            >
+                👤 {{ toDo.AssignedTo }}
+            </a>
+
+        </div>
+
+
+        <div class="detail-section">
+
+            <span class="detail-label">
+                Date
+            </span>
+
+            <p>
+                📅 {{ toDo.date|date('d/m/Y') }}
+            </p>
+
+        </div>
+
+
+        <div class="todo-actions">
+
+            <a
+                href="{{ path('app_to_do_edit', { id: toDo.id }) }}"
+                class="btn btn-primary"
+            >
+                ✏️ Modifier
+            </a>
+
+            <a
+                href="{{ path('app_to_do_list') }}"
+                class="btn btn-secondary"
+            >
+                ← Retour
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

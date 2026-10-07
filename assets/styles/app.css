@@ -1,0 +1,20 @@
+body {
+    background-color: skyblue;
+}
+.todo {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.todo-todo {
+    background-color: gray;
+}
+
+.todo-progress {
+    background-color: orange;
+}
+
+.todo-done {
+    background-color: green;
+}
+
