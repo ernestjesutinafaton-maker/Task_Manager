@@ -9,7 +9,7 @@
 ![SQLite](https://img.shields.io/badge/Database-SQLite-003B57?logo=sqlite)
 ![JavaScript](https://img.shields.io/badge/JavaScript-Dynamic-F7DF1E?logo=javascript)
 ![CSS3](https://img.shields.io/badge/CSS3-Styling-1572B6?logo=css3)
-
+ 
 ---
 
 ##  Présentation
